@@ -41,7 +41,7 @@ export default function Login() {
                                     </div>
 
                                     <div className="text-center">
-                                        <span className="text-slate-400 me-2">Don't have an account ?</span> <Link to="/signup" className="text-black dark:text-white font-bold">Sign Up</Link>
+                                        <span className="text-slate-400 me-2">Don't have an account ?</span> <Link to="/inscription" className="text-black dark:text-white font-bold">Sign Up</Link>
                                     </div>
                                 </div>
                             </form>
