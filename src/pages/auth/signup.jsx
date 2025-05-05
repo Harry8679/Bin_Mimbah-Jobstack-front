@@ -36,7 +36,7 @@ export default function Signup() {
                                     <div className="mb-4">
                                         <div className="flex items-center w-full mb-0">
                                             <input className="form-checkbox rounded size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-green-600 checked:appearance-auto dark:accent-green-600 focus:border-green-300 focus:ring-0 focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="AcceptT&C" />
-                                            <label className="form-check-label text-slate-400" htmlFor="AcceptT&C">I Accept <Link to="#" className="text-emerald-600">Terms And Condition</Link></label>
+                                            <label className="form-check-label text-slate-400" htmlFor="AcceptT&C">J'accepte <Link to="#" className="text-emerald-600">les Termes Et Conditions</Link></label>
                                         </div>
                                     </div>
 
@@ -45,7 +45,7 @@ export default function Signup() {
                                     </div>
 
                                     <div className="text-center">
-                                        <span className="text-slate-400 me-2">Already have an account ? </span> <Link to="/login" className="text-black dark:text-white font-bold">Sign in</Link>
+                                        <span className="text-slate-400 me-2">Already have an account ? </span> <Link to="/connexion" className="text-black dark:text-white font-bold">Connexion</Link>
                                     </div>
                                 </div>
                             </form>
