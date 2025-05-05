@@ -122,8 +122,8 @@ function App() {
         <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/terms' element={<Terms />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/connexion' element={<Login />} />
+        <Route path='/inscription' element={<Signup />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/blog-detail' element={<BlogDetail />} />
