@@ -15,7 +15,7 @@ export default function Signup() {
                                 <img src={logo_dark} className="mx-auto h-[24px] block dark:hidden" alt="" />
                                 <img src={logo_light} className="mx-auto h-[24px] dark:block hidden" alt="" />
                             </Link>
-                            <h5 className="my-6 text-xl font-semibold">Signup</h5>
+                            <h5 className="my-6 text-xl font-semibold">Inscription</h5>
                             <form className="text-left">
                                 <div className="grid grid-cols-1">
                                     <div className="mb-4 ltr:text-left rtl:text-right">
