@@ -19,18 +19,28 @@ export default function Signup() {
                             <form className="text-left">
                                 <div className="grid grid-cols-1">
                                     <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="RegisterName">Your Name:</label>
-                                        <input id="RegisterName" type="text" className="form-input mt-3 rounded-md" placeholder="Harry" />
+                                        <label className="font-semibold" htmlFor="RegisterLastName">Nom :</label>
+                                        <input id="RegisterLastName" type="text" className="form-input mt-3 rounded-md" placeholder="Harry" />
                                     </div>
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginEmail">Email Address:</label>
-                                        <input id="LoginEmail" type="email" className="form-input mt-3 rounded-md" placeholder="name@example.com" />
+                                        <label className="font-semibold" htmlFor="RegisterFirstName">Prénom :</label>
+                                        <input id="RegisterFirstName" type="text" className="form-input mt-3 rounded-md" placeholder="Harry" />
                                     </div>
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginPassword">Password:</label>
+                                        <label className="font-semibold" htmlFor="LoginEmail">Phone :</label>
+                                        <input id="LoginEmail" type="email" className="form-input mt-3 rounded-md" placeholder="+24166621263" />
+                                    </div>
+
+                                    <div className="mb-4 ltr:text-left rtl:text-right">
+                                        <label className="font-semibold" htmlFor="LoginPassword">Mot de passe:</label>
                                         <input id="LoginPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Password:" />
+                                    </div>
+
+                                    <div className="mb-4 ltr:text-left rtl:text-right">
+                                        <label className="font-semibold" htmlFor="LoginPassword">Confirmez votre mot de passe :</label>
+                                        <input id="LoginConfirmPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Password:" />
                                     </div>
 
                                     <div className="mb-4">
