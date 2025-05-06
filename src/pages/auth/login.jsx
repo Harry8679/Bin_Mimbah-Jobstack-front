@@ -15,12 +15,12 @@ export default function Login() {
                                 <img src={logo_dark} className="mx-auto h-[24px] block dark:hidden" alt="" />
                                 <img src={logo_light} className="mx-auto h-[24px] dark:block hidden" alt="" />
                             </Link>
-                            <h5 className="my-6 text-xl font-semibold">Connexion</h5>
+                            <h5 className="my-6 text-xl font-semibold">Espace de Connexion</h5>
                             <form className="text-left">
                                 <div className="grid grid-cols-1">
                                     <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginEmail">Email :</label>
-                                        <input id="LoginEmail" type="email" className="form-input mt-3 rounded-md" placeholder="name@example.com" />
+                                        <label className="font-semibold" htmlFor="LoginEmail">Phone :</label>
+                                        <input id="LoginEmail" type="email" className="form-input mt-3 rounded-md" placeholder="+24166465797" />
                                     </div>
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
@@ -33,11 +33,11 @@ export default function Login() {
                                             <input className="form-checkbox rounded size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-green-600 checked:appearance-auto dark:accent-green-600 focus:border-green-300 focus:ring-0 focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2 me-2" type="checkbox" value="" id="RememberMe"/>
                                             <label className="form-checkbox-label text-slate-400" htmlFor="RememberMe">Se souvenir de moi</label>
                                         </div>
-                                        <p className="text-slate-400 mb-0"><Link to="/reset-password" className="text-slate-400">Forgot password ?</Link></p>
+                                        <p className="text-slate-400 mb-0"><Link to="/reset-password" className="text-slate-400">Mot de passe oublié ?</Link></p>
                                     </div>
 
                                     <div className="mb-4">
-                                        <input type="submit" className="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md w-full" value="Login / Sign in" />
+                                        <input type="submit" className="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md w-full" value="Connexion" />
                                     </div>
 
                                     <div className="text-center">
