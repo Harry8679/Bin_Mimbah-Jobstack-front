@@ -15,23 +15,23 @@ export default function Login() {
                                 <img src={logo_dark} className="mx-auto h-[24px] block dark:hidden" alt="" />
                                 <img src={logo_light} className="mx-auto h-[24px] dark:block hidden" alt="" />
                             </Link>
-                            <h5 className="my-6 text-xl font-semibold">Login</h5>
+                            <h5 className="my-6 text-xl font-semibold">Connexion</h5>
                             <form className="text-left">
                                 <div className="grid grid-cols-1">
                                     <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginEmail">Email Address:</label>
+                                        <label className="font-semibold" htmlFor="LoginEmail">Email :</label>
                                         <input id="LoginEmail" type="email" className="form-input mt-3 rounded-md" placeholder="name@example.com" />
                                     </div>
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginPassword">Password:</label>
+                                        <label className="font-semibold" htmlFor="LoginPassword">Mot de passe :</label>
                                         <input id="LoginPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Password:" />
                                     </div>
 
                                     <div className="flex justify-between mb-4">
                                         <div className="inline-flex items-center mb-0">
                                             <input className="form-checkbox rounded size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-green-600 checked:appearance-auto dark:accent-green-600 focus:border-green-300 focus:ring-0 focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2 me-2" type="checkbox" value="" id="RememberMe"/>
-                                            <label className="form-checkbox-label text-slate-400" htmlFor="RememberMe">Remember me</label>
+                                            <label className="form-checkbox-label text-slate-400" htmlFor="RememberMe">Se souvenir de moi</label>
                                         </div>
                                         <p className="text-slate-400 mb-0"><Link to="/reset-password" className="text-slate-400">Forgot password ?</Link></p>
                                     </div>
@@ -41,7 +41,7 @@ export default function Login() {
                                     </div>
 
                                     <div className="text-center">
-                                        <span className="text-slate-400 me-2">Don't have an account ?</span> <Link to="/inscription" className="text-black dark:text-white font-bold">Sign Up</Link>
+                                        <span className="text-slate-400 me-2">Vous n'avez pas de compte ?</span> <Link to="/inscription" className="text-black dark:text-white font-bold">Inscription</Link>
                                     </div>
                                 </div>
                             </form>
