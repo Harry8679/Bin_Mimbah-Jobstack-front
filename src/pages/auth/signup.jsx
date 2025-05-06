@@ -15,6 +15,15 @@ export default function Signup() {
     });
 
     const [errors, setErrors] = useState({});
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setForm((prev) => ({
+          ...prev,
+          [name]: type === 'checkbox' ? checked : value,
+        }));
+      };
+      
     return (
         <section className="h-screen flex items-center justify-center relative overflow-hidden bg-[url('../../assets/images/hero/bg3.jpg')] bg-no-repeat bg-center bg-cover">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
