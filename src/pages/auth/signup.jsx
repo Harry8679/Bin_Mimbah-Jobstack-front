@@ -15,7 +15,7 @@ export default function Signup() {
                                 <img src={logo_dark} className="mx-auto h-[24px] block dark:hidden" alt="" />
                                 <img src={logo_light} className="mx-auto h-[24px] dark:block hidden" alt="" />
                             </Link>
-                            <h5 className="my-6 text-xl font-semibold">Inscription</h5>
+                            <h5 className="my-6 text-xl font-semibold">Espace Inscription</h5>
                             <form className="text-left">
                                 <div className="grid grid-cols-1">
                                     <div className="mb-4 ltr:text-left rtl:text-right">
@@ -55,14 +55,14 @@ export default function Signup() {
                                     </div>
 
                                     <div className="text-center">
-                                        <span className="text-slate-400 me-2">Already have an account ? </span> <Link to="/connexion" className="text-black dark:text-white font-bold">Connexion</Link>
+                                        <span className="text-slate-400 me-2">Avez-vous déjà un compte ? </span> <Link to="/connexion" className="text-black dark:text-white font-bold">Connexion</Link>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
                         <div className="px-6 py-2 bg-slate-50 dark:bg-slate-800 text-center">
-                            <p className="mb-0 text-gray-400 font-medium">© {(new Date().getFullYear())}{" "} Jobstack. Designed by <Link to="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                            <p className="mb-0 text-gray-400 font-medium">Bonne année © {(new Date().getFullYear())}{" "}.</p>
                         </div>
                     </div>
                 </div>
