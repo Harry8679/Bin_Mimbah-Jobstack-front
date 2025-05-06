@@ -20,7 +20,7 @@ export default function Signup() {
                                 <div className="grid grid-cols-1">
                                     <div className="mb-4 ltr:text-left rtl:text-right">
                                         <label className="font-semibold" htmlFor="RegisterLastName">Nom :</label>
-                                        <input id="RegisterLastName" type="text" className="form-input mt-3 rounded-md" placeholder="Harry" />
+                                        <input id="RegisterLastName" type="text" className="form-input mt-3 rounded-md" placeholder="ANGUILET" />
                                     </div>
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
@@ -35,12 +35,12 @@ export default function Signup() {
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
                                         <label className="font-semibold" htmlFor="LoginPassword">Mot de passe:</label>
-                                        <input id="LoginPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Password:" />
+                                        <input id="LoginPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Entrez votre votre de passe" />
                                     </div>
 
                                     <div className="mb-4 ltr:text-left rtl:text-right">
                                         <label className="font-semibold" htmlFor="LoginPassword">Confirmez votre mot de passe :</label>
-                                        <input id="LoginConfirmPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Password:" />
+                                        <input id="LoginConfirmPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Confirmez votre mot de passe" />
                                     </div>
 
                                     <div className="mb-4">
