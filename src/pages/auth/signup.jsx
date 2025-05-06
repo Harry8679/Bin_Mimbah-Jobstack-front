@@ -22,8 +22,32 @@ export default function Signup() {
           ...prev,
           [name]: type === 'checkbox' ? checked : value,
         }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newErrors = {};
+    
+        // Required fields
+        Object.entries(form).forEach(([key, value]) => {
+          if ((key !== 'accepted' && !value.trim()) || (key === 'accepted' && !value)) {
+            newErrors[key] = 'Ce champ est requis';
+          }
+        });
+    
+        // Password match validation
+        if (form.password && form.confirmPassword && form.password !== form.confirmPassword) {
+          newErrors.passwordMatch = 'Les mots de passe ne correspondent pas';
+        }
+    
+        setErrors(newErrors);
+    
+        if (Object.keys(newErrors).length === 0) {
+          console.log('Form submitted:', form);
+          // Submit logic here...
+        }
       };
-      
+
     return (
         <section className="h-screen flex items-center justify-center relative overflow-hidden bg-[url('../../assets/images/hero/bg3.jpg')] bg-no-repeat bg-center bg-cover">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
