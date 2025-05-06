@@ -2,8 +2,17 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import logo_dark from '../../assets/images/logo-dark.png';
 import logo_light from '../../assets/images/logo-light.png';
+import { useState } from 'react';
 
 export default function Signup() {
+    const [form, setForm] = useState({
+        lastName: '',
+        firstName: '',
+        phone: '',
+        password: '',
+        confirmPassword: '',
+        accpeted: false
+    });
     return (
         <section className="h-screen flex items-center justify-center relative overflow-hidden bg-[url('../../assets/images/hero/bg3.jpg')] bg-no-repeat bg-center bg-cover">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
