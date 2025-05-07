@@ -15,6 +15,9 @@ export default function Signup() {
 
   const [errors, setErrors] = useState({});
 
+  // Vérification en direct si les mots de passe correspondent
+  const passwordsMatch = form.password && form.confirmPassword && form.password === form.confirmPassword;
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
@@ -27,15 +30,13 @@ export default function Signup() {
     e.preventDefault();
     const newErrors = {};
 
-    // Required fields
     Object.entries(form).forEach(([key, value]) => {
       if ((key !== 'accepted' && !value.trim()) || (key === 'accepted' && !value)) {
         newErrors[key] = 'Ce champ est requis';
       }
     });
 
-    // Password match validation
-    if (form.password && form.confirmPassword && form.password !== form.confirmPassword) {
+    if (form.password !== form.confirmPassword) {
       newErrors.passwordMatch = 'Les mots de passe ne correspondent pas';
     }
 
@@ -43,31 +44,14 @@ export default function Signup() {
 
     if (Object.keys(newErrors).length === 0) {
       console.log('Formulaire soumis !', form);
-      // Ajoute ici ton envoi API ou autre logique
     }
   };
 
-  /* const inputStyle = (name) => {
-    if (errors[name]) return 'border-red-500';
-    if ((name === 'password' || name === 'confirmPassword') &&
-      form.password &&
-      form.confirmPassword &&
-      form.password === form.confirmPassword) {
-      return 'border-green-500';
-    }
-    return '';
-  };*/
   const inputStyle = (name) => {
-    if (name === 'password' || name === 'confirmPassword') {
-      if (form.password && form.confirmPassword) {
-        return form.password === form.confirmPassword
-          ? 'border-green-500'
-          : 'border-red-500';
-      }
+    if ((name === 'password' || name === 'confirmPassword') && form.password && form.confirmPassword) {
+      return passwordsMatch ? 'border-green-500' : 'border-red-500';
     }
-  
     if (errors[name]) return 'border-red-500';
-  
     return '';
   };
 
@@ -105,12 +89,13 @@ export default function Signup() {
                         placeholder={placeholder}
                         className={`form-input mt-1 rounded-md w-full px-4 py-2 border ${inputStyle(name)}`}
                       />
-                      {errors[name] && <p className="text-sm text-red-600 font-medium">{errors[name]}</p>}
+                      {errors[name] && <p className="text-sm text-red-600 font-medium mt-1">{errors[name]}</p>}
                     </div>
                   ))}
 
-                  {errors.passwordMatch && (
-                    <p className="text-red-500 text-sm -mt-3">{errors.passwordMatch}</p>
+                  {/* Affiche un message d'erreur si les mots de passe ne correspondent pas */}
+                  {form.password && form.confirmPassword && !passwordsMatch && (
+                    <p className="text-sm text-red-600 font-medium -mt-2">Les mots de passe ne correspondent pas</p>
                   )}
 
                   <div className="flex items-center">
