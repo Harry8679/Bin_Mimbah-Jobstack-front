@@ -92,7 +92,7 @@ export default function Signup() {
                         placeholder={placeholder}
                         className={`form-input mt-1 rounded-md w-full px-4 py-2 border ${inputStyle(name)}`}
                       />
-                      {errors[name] && <p className="text-red-500 text-sm">{errors[name]}</p>}
+                      {errors[name] && <p className="text-sm text-red-600 font-medium">{errors[name]}</p>}
                     </div>
                   ))}
 
@@ -113,7 +113,7 @@ export default function Signup() {
                       J'accepte <Link to="#" className="text-emerald-600 hover:underline">les Termes Et Conditions</Link>
                     </label>
                   </div>
-                  {errors.accepted && <p className="text-red-500 text-sm">{errors.accepted}</p>}
+                  {errors.accepted && <p className="text-sm text-red-600 font-medium">{errors.accepted}</p>}
 
                   <button
                     type="submit"
