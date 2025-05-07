@@ -47,7 +47,7 @@ export default function Signup() {
     }
   };
 
-  const inputStyle = (name) => {
+  /* const inputStyle = (name) => {
     if (errors[name]) return 'border-red-500';
     if ((name === 'password' || name === 'confirmPassword') &&
       form.password &&
@@ -55,6 +55,19 @@ export default function Signup() {
       form.password === form.confirmPassword) {
       return 'border-green-500';
     }
+    return '';
+  };*/
+  const inputStyle = (name) => {
+    if (name === 'password' || name === 'confirmPassword') {
+      if (form.password && form.confirmPassword) {
+        return form.password === form.confirmPassword
+          ? 'border-green-500'
+          : 'border-red-500';
+      }
+    }
+  
+    if (errors[name]) return 'border-red-500';
+  
     return '';
   };
 
