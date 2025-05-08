@@ -61,7 +61,7 @@ export default function Signup() {
           autoClose: 2000,
         });
 
-        setTimeout(() => navigate('/index-seven'), 2500);
+        setTimeout(() => navigate('/connexion'), 2500);
       } catch (err) {
         toast.error("Une erreur est survenue lors de l'inscription", {
           position: "top-right",

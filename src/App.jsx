@@ -67,14 +67,14 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route exact path="/" element={<Index/>} />
+        {/* <Route exact path="/" element={<Index/>} /> */}
         <Route path="/index" element={<Index />} />
         <Route path="/index-two" element={<IndexTwo />} />
         <Route path="/index-three" element={<IndexThree />} />
         <Route path="/index-four" element={<IndexFour />} />
         <Route path="/index-five" element={<IndexFive />} />
         <Route path="/index-six" element={<IndexSix />} />
-        <Route path="/index-seven" element={<IndexSeven />} />
+        <Route path="/" element={<IndexSeven />} />
         <Route path="/index-eight" element={<IndexEight />} />
         <Route path="/index-nine" element={<IndexNine />} />
         <Route path="/index-ten" element={<IndexTen />} />
