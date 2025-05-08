@@ -49,6 +49,7 @@ export default function Signup() {
 
     if (Object.keys(newErrors).length === 0) {
       try {
+        // eslint-disable-next-line no-unused-vars
         const response = await axios.post('http://localhost:8000/api/register', {
           firstName: form.firstName,
           lastName: form.lastName,
@@ -62,6 +63,7 @@ export default function Signup() {
         });
 
         setTimeout(() => navigate('/connexion'), 2500);
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         toast.error("Une erreur est survenue lors de l'inscription", {
           position: "top-right",
