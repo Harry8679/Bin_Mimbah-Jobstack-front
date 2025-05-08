@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import logo_dark from '../../assets/images/logo-dark.png';
 import logo_light from '../../assets/images/logo-light.png';
 
 export default function Signup() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     lastName: '',
     firstName: '',
@@ -15,7 +21,6 @@ export default function Signup() {
 
   const [errors, setErrors] = useState({});
 
-  // Vérification en direct si les mots de passe correspondent
   const passwordsMatch = form.password && form.confirmPassword && form.password === form.confirmPassword;
 
   const handleChange = (e) => {
@@ -26,7 +31,7 @@ export default function Signup() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -43,7 +48,26 @@ export default function Signup() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log('Formulaire soumis !', form);
+      try {
+        const response = await axios.post('http://localhost:8000/api/register', {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          phone_number: form.phone,
+          password: form.password,
+        });
+
+        toast.success("Inscription réussie ! Redirection en cours...", {
+          position: "top-right",
+          autoClose: 2000,
+        });
+
+        setTimeout(() => navigate('/index-seven'), 2500);
+      } catch (err) {
+        toast.error("Une erreur est survenue lors de l'inscription", {
+          position: "top-right",
+          autoClose: 4000,
+        });
+      }
     }
   };
 
@@ -57,6 +81,7 @@ export default function Signup() {
 
   return (
     <section className="h-screen flex items-center justify-center relative overflow-hidden bg-[url('../../assets/images/hero/bg3.jpg')] bg-no-repeat bg-center bg-cover">
+      <ToastContainer />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
       <div className="container">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center">
@@ -93,7 +118,6 @@ export default function Signup() {
                     </div>
                   ))}
 
-                  {/* Affiche un message d'erreur si les mots de passe ne correspondent pas */}
                   {form.password && form.confirmPassword && !passwordsMatch && (
                     <p className="text-sm text-red-600 font-medium -mt-2">Les mots de passe ne correspondent pas</p>
                   )}
