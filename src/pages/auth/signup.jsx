@@ -157,6 +157,7 @@ export default function Signup() {
             <div className="px-6 py-2 bg-slate-50 dark:bg-slate-800 text-center">
               <p className="mb-0 text-gray-400 text-xs font-medium">
                 Bonne année © {new Date().getFullYear()}.
+                
               </p>
             </div>
           </div>
