@@ -62,13 +62,19 @@ export default function Signup() {
           autoClose: 2000,
         });
 
-        setTimeout(() => navigate('/connexion'), 2500);
-      // eslint-disable-next-line no-unused-vars
+        setTimeout(() => navigate('/connexion'), 2500); 
       } catch (err) {
-        toast.error("Une erreur est survenue lors de l'inscription", {
-          position: "top-right",
-          autoClose: 4000,
-        });
+        if (err.response && err.response.status === 409) {
+          toast.error(err.response.data.error || "Numéro déjà utilisé", {
+            position: "top-right",
+            autoClose: 4000,
+          });
+        } else {
+          toast.error("Une erreur est survenue lors de l'inscription", {
+            position: "top-right",
+            autoClose: 4000,
+          });
+        }
       }
     }
   };
@@ -157,7 +163,7 @@ export default function Signup() {
             <div className="px-6 py-2 bg-slate-50 dark:bg-slate-800 text-center">
               <p className="mb-0 text-gray-400 text-xs font-medium">
                 Bonne année © {new Date().getFullYear()}.
-                
+
               </p>
             </div>
           </div>
