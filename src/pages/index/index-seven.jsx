@@ -51,7 +51,7 @@ export default function IndexSeven() {
                 <div className="absolute inset-0 bg-emerald-900/80"></div>
                 <div className="container z-1">
                     <div className="grid grid-cols-1 text-center mt-10 relative">
-                        <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Got Talent ? <br /> Meet Opportunity</h4>
+                        <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Tu cherches des talents ? <br /> Meet Opportunity</h4>
                         <p className="text-white/50 text-lg max-w-xl mx-auto">Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
 
                         <div className="d-flex" id="reserve-form">
