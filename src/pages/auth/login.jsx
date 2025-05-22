@@ -1,9 +1,38 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 import logo_dark from '../../assets/images/logo-dark.png';
 import logo_light from '../../assets/images/logo-light.png';
 
 export default function Login() {
+    const navigate = useNavigate();
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:8000/api/login', {
+                phone_number: phone,
+                password: password
+            });
+
+            const { token, user } = response.data;
+
+            // Sauvegarde du token (tu peux aussi utiliser Redux ou context)
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
+
+            // Redirige vers l’accueil
+            navigate('/');
+        } catch (err) {
+            const message = err.response?.data?.error || "Erreur lors de la connexion.";
+            setError(message);
+        }
+    };
+
     return (
         <section className="h-screen flex items-center justify-center relative overflow-hidden bg-[url('../../assets/images/hero/bg3.jpg')] bg-no-repeat bg-center bg-cover">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
@@ -16,43 +45,62 @@ export default function Login() {
                                 <img src={logo_light} className="mx-auto h-[24px] dark:block hidden" alt="" />
                             </Link>
                             <h5 className="my-6 text-xl font-semibold">Espace de Connexion</h5>
-                            <form className="text-left">
+                            {error && <p className="text-red-500 mb-4">{error}</p>}
+
+                            <form onSubmit={handleLogin} className="text-left">
                                 <div className="grid grid-cols-1">
-                                    <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginEmail">Phone :</label>
-                                        <input id="LoginEmail" type="email" className="form-input mt-3 rounded-md" placeholder="+24166465797" />
-                                    </div>
-
-                                    <div className="mb-4 ltr:text-left rtl:text-right">
-                                        <label className="font-semibold" htmlFor="LoginPassword">Mot de passe :</label>
-                                        <input id="LoginPassword" type="password" className="form-input mt-3 rounded-md" placeholder="Password:" />
-                                    </div>
-
-                                    <div className="flex justify-between mb-4">
-                                        <div className="inline-flex items-center mb-0">
-                                            <input className="form-checkbox rounded size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-green-600 checked:appearance-auto dark:accent-green-600 focus:border-green-300 focus:ring-0 focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2 me-2" type="checkbox" value="" id="RememberMe"/>
-                                            <label className="form-checkbox-label text-slate-400" htmlFor="RememberMe">Se souvenir de moi</label>
-                                        </div>
-                                        <p className="text-slate-400 mb-0"><Link to="/reset-password" className="text-slate-400">Mot de passe oublié ?</Link></p>
+                                    <div className="mb-4">
+                                        <label className="font-semibold" htmlFor="LoginPhone">Téléphone :</label>
+                                        <input
+                                            id="LoginPhone"
+                                            type="tel"
+                                            className="form-input mt-3 rounded-md w-full"
+                                            placeholder="+24166465797"
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
+                                        />
                                     </div>
 
                                     <div className="mb-4">
-                                        <input type="submit" className="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md w-full" value="Connexion" />
+                                        <label className="font-semibold" htmlFor="LoginPassword">Mot de passe :</label>
+                                        <input
+                                            id="LoginPassword"
+                                            type="password"
+                                            className="form-input mt-3 rounded-md w-full"
+                                            placeholder="********"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                    </div>
+
+                                    <div className="flex justify-between mb-4">
+                                        <div className="inline-flex items-center">
+                                            <input type="checkbox" id="RememberMe" className="form-checkbox rounded me-2" />
+                                            <label htmlFor="RememberMe" className="text-slate-400">Se souvenir de moi</label>
+                                        </div>
+                                        <p className="text-slate-400 mb-0"><Link to="/reset-password">Mot de passe oublié ?</Link></p>
+                                    </div>
+
+                                    <div className="mb-4">
+                                        <button type="submit" className="py-2 px-5 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-md">
+                                            Connexion
+                                        </button>
                                     </div>
 
                                     <div className="text-center">
-                                        <span className="text-slate-400 me-2">Vous n'avez pas de compte ?</span> <Link to="/inscription" className="text-black dark:text-white font-bold">Inscription</Link>
+                                        <span className="text-slate-400">Pas encore de compte ? </span>
+                                        <Link to="/inscription" className="text-black dark:text-white font-bold">Inscription</Link>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
                         <div className="px-6 py-2 bg-slate-50 dark:bg-slate-800 text-center">
-                            <p className="mb-0 text-gray-400 font-medium">Bonne année © {(new Date().getFullYear())}{" "}.</p>
+                            <p className="mb-0 text-gray-400 font-medium">Bonne année © {new Date().getFullYear()}.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
